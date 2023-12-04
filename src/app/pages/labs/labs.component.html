@@ -1,0 +1,69 @@
+<div class="container">
+  <h1>Hola este es el primer proyecto</h1>
+  <h2>{{ welcome }}</h2>
+  <ul>
+    <li *ngFor="let task of tasks()">
+      {{ task }}
+    </li>
+  </ul>
+  <hr />
+  <h2>{{ "Hola".repeat(4) }}</h2>
+  <p>la sumas de 3+3 es {{ 3 + 3 }}</p>
+  <p>Hola soy {{ name() }} y mi edad es {{ age }}</p>
+  <hr />
+  <img [src]="img" alt="imagen" />
+  <hr />
+  <input type="text" [value]="person().age" />
+  <button [disabled]="disabled">Click me</button>
+  <p>person : {{ person.name }}</p>
+  <hr />
+  <button (click)="clickHandler()">Click me</button>
+  <button (dblclick)="clickHandler()">Double me</button>
+  <p>(change)</p>
+  <input type="number" [value]="person().age" (change)="changeHandler($event)">
+  <p>(keydown shift t)</p>
+  <input type="text" [value]="person.name" (keydown)="keyDownHandklr($event)">
+  <hr />
+  <ul>
+    <p>total: {{ tasks().length}}</p>
+    <li *ngFor="let task of tasks(); index as i">
+      {{ i }} {{ task }}
+    </li>
+  </ul>
+  <h1>Signals</h1>
+  <input type="text" [value]="name()" (change)="changeHandler($event)">
+  <p>name: {{ name() }}</p>
+  <p>name: {{ name() }}</p>
+  <hr />
+  <ul>
+    <p>total: {{ tasks().length}}</p>
+    <li *ngFor="let task of tasks(); index as i">
+      {{ i }} {{ task }}
+  </ul>
+<hr/>
+<div *ngIf="1!==1">
+  My content
+</div>
+<div *ngIf="name()=== 'Manuel'">
+  soy Manuel
+</div>
+<input type="number" [value]="person().age" (change)="changeAge($event)">
+
+<div *ngIf="name()=== 'Manuel' && person().age >18; else elseBlock">
+  soy Manuel y soy mayor de edad
+</div>
+<ng-template #elseBlock>
+  soy menor de edad
+</ng-template>
+<hr/>
+<input type="text" [value]="person().name" (change)="changeName($event)">
+<div [ngSwitch]="person().name">
+<p *ngSwitchCase="'nicolas'">Yo soy Nicolas</p>
+<p *ngSwitchCase="'Manuel'">Yo soy Manuel</p>
+<p *ngSwitchCase="'Juan'">Yo soy Juan</p>
+<p *ngSwitchDefault>Yo no soy nadie</p>
+</div>
+<hr/>
+<input type="color" [formControl]="colorCtrl">
+<p>color: {{ colorCtrl.value }}</p>
+</div>
